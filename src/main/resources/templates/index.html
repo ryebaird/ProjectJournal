@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org http://www.thymeleaf.org
+  http://www.ultraq.net.nz/thymeleaf/layout http://www.ultraq.net.nz/thymeleaf/layout
+  http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+
+<h1>Hello</h1>
+<h3>the username is:</h3>
+<p th:text="${thename}"></p>
+
+<h3>the user object is:</h3>
+<p th:text="${theuser.id}"></p>
+<p th:text="${theuser.name}"></p>
+<p th:text="${theuser.email}"></p>
+
+
+<form th:action="@{/process}" method="post">
+<input type="text" name="id" th:value="${theuser.id}" />
+<input type="text" name="name"  th:value="${theuser.name}" />
+<input type="text" name="email"  th:value="${theuser.email}" />
+
+<input type="submit" name="Submit" />
+
+</form>
+
+</body>
+</html>
