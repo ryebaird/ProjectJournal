@@ -23,13 +23,17 @@
 <p th:text="${theuser.email}"></p>
 
 
-<form th:action="@{/process}" method="post">
-<input type="text" name="id" th:value="${theuser.id}" />
-<input type="text" name="name"  th:value="${theuser.name}" />
-<input type="text" name="email"  th:value="${theuser.email}" />
+<form th:action="@{/process}" method="post" th:object="${theuser}">
+<input type="text" name="id" th:field="*{id}" th:value="${id}" />
+<input type="text" name="name" th:field="*{name}" th:value="${name}" />
+<input type="text" name="email" th:field="*{email}" th:value="${email}" />
 
 <input type="submit" name="Submit" />
 
+
+    <ul th:if="${#fields.hasErrors('*')}">
+        <li th:each="error : ${#fields.errors('*')}" th:text="${error}">error</li>
+    </ul>
 </form>
 
 </body>

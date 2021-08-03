@@ -5,9 +5,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.perscholas.springapp.models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,8 +50,14 @@ public class HomeController {
         return "index";
     }
     @PostMapping("/process")
-    public String showData(@ModelAttribute("theuser") User user, Model model){
+    public String showData(@ModelAttribute("theuser") @Valid User user, BindingResult bindingResult, Model model){
         log.warn("post request!");
+        if(bindingResult.hasErrors()){
+            log.warn(bindingResult.getAllErrors().toString());
+            return "index";
+
+        }
+
         model.addAttribute("thenewuser",user);
         return "showdata";
     }
