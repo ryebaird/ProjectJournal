@@ -15,18 +15,14 @@ import javax.persistence.Id;
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-
-public class Part {
+public class Attachment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int partId;
-    @NonNull
+    private int imageId;
     @NotNull
-    private String partType;
     @NonNull
+    private String imageName;
     @NotNull
-    private String partValue;
     @NonNull
-    @NotNull
     private int updateId;
 }

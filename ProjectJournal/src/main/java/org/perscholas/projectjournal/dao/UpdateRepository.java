@@ -10,6 +10,7 @@ import java.util.Optional;
 @Repository
 public interface UpdateRepository extends JpaRepository<Update, Integer> {
 
-    List<Update> findAllByProjectId(Integer id);
     Optional<Update> findByUpdateId(Integer id);
+
+    List<Update> findAllByProjectId(Integer id);
 }

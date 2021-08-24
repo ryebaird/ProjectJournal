@@ -41,24 +41,25 @@ public class UserService {
         }
     }
 
-    public void populateData(){
-        User user = new User("ryebaird","Ryan","Baird","Password","1289 S Warner Dr.","Apache Junction","Az","USA",42,true);
-        User user1 = new User("jbaird","Charles","Baird","Password","1289 S Warner Dr.","Apache Junction","Az","USA",44,true);
-        User user2 = new User("kstorm","Krystal","Storm","Password","1289 S Warner Dr.","Apache Junction","Az","USA",40,true);
-        Project project = new Project("Grow Room","Space dedicated for growing plants via hydroponics",true);
-        Project project1 = new Project("RV remodel","Remodeling an RV to include new features and windows",true);
-        projectRepository.saveAll(Arrays.asList(project,project1));
-
-
-        List<Project> listpro = user.getProjects();
-        listpro.add(project);
-        log.warn(listpro.toString());
-//        listpro.add(project);
-//        user.setProjects(listpro);
-
+    public void populateUserData(){
+        User user = new User("ryebaird","ryebaird@gmail.com","Ryan","Baird","Password","1289 S Warner Dr.","Apache Junction","Az","USA",42,true);
+        User user1 = new User("jbaird","jbaird420@gmail.com","Charles","Baird","Password","1289 S Warner Dr.","Apache Junction","Az","USA",44,true);
+        User user2 = new User("kstorm","kstorm@gmail.com","Krystal","Storm","Password","1289 S Warner Dr.","Apache Junction","Az","USA",40,true);
         userRepository.saveAll(Arrays.asList(user,user1,user2));
+    }
 
+    public User getUserById(int id)
+    {
+        Optional<User> user = userRepository.findByUserId(id);
 
+        if (user.isPresent())
+        {
+            return user.get();
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public User addUser(User u){

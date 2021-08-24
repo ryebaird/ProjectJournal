@@ -20,6 +20,9 @@ public class User {
     private String userName;
     @NotNull
     @NonNull
+    private String userEmail;
+    @NotNull
+    @NonNull
     private String userFirst;
     @NotNull
     @NonNull
@@ -51,10 +54,10 @@ public class User {
     @NonNull
     private boolean active;
 
-    @OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL)
     List<Project> projects;
 
-    @OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL)
     List<Project> watchedProjects;
 
 

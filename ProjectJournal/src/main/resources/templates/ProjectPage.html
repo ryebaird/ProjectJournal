@@ -1,0 +1,37 @@
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+  <div class = "row">
+    <div class = "col-6">
+      <h1> Project Details </h1>
+      <h4>Project Name:</h4> <span th:text="${project.projectName}"></span><br>
+      <h4> Project Description:</h4> <span th:text="${project.projectDescription}"></span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      Updates:
+      <table>
+        <tr>
+          <th>Update #</th><th>Updated on</th>
+        </tr>
+        <tr th:each="upd: updates">
+          <td th:text="${upd.updateId}"></td> <td th:text="${upd.updateCreatedOn}"></td>
+        </tr>
+
+      </table>
+      </div>
+  </div>
+</div>
+
+</body>

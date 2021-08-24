@@ -20,18 +20,17 @@ public class Project {
     private int projectId;
     @NotNull
     @NonNull
+    private int userId;
+    @NotNull
+    @NonNull
     private String projectName;
     @NotNull
     @NonNull
     private String projectDescription;
     @NotNull
     @NonNull
-    private boolean shared;
     private Date projectCreatedOn = new Date();
 
-
-    @ManyToOne
-    private User userIdOwner;
 
 
     @OneToMany

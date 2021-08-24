@@ -22,10 +22,15 @@ public class Update {
     @NotNull
     @NonNull
     private int projectId;
+    private Date updateCreatedOn = new Date();
     @NotNull
     @NonNull
-    private Date updateCreatedOn;
+    private String updateDescription;
+    @NonNull
+    @NotNull
+    private String updateText;
+
 
     @OneToMany
-    List<Part> parts;
+    List<Attachment> attachments;
 }
