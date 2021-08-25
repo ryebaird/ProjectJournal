@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class Update {
+public class Updates {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int updateId;

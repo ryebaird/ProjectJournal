@@ -34,6 +34,6 @@ public class Project {
 
 
     @OneToMany
-    private List<Update> updates;
+    private List<Updates> updates;
 
 }
